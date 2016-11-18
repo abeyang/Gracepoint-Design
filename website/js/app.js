@@ -1,3 +1,37 @@
+// ROUTING TEMPLATES
+
+const Dashboard = Vue.extend({ 
+	template: '#dashboard',
+	data: function() {
+		return {
+			// https://jsbin.com/bikadol/7/edit?html,js,output
+			designs: this.$parent.designs
+		}
+	}
+});
+
+const Design = Vue.extend({ 
+	template: '<div>Design {{ $route.params.id }}</div>',
+	data: function() {
+		return {
+			// https://jsbin.com/bikadol/7/edit?html,js,output
+			designs: this.$parent.designs
+		}
+	}
+});
+
+// ROUTER CONTROLLER
+
+const router = new VueRouter({
+	routes: [
+		{ path: '/', component: Dashboard},
+		{ path: '/design', component: Design},
+		{ path: '/design/:id', component: Design}
+	]
+});
+
+// BASIC COMPONENTS
+
 Vue.component('design-card', {
 	props: ['design'],
 	template: '#design-card',
@@ -16,13 +50,14 @@ Vue.component('design-card', {
 	}
 });
 
+// APP
+
 var app = new Vue({
-	el: '#app',
+	router,
 	data: {
 		designs: [
-			<!-- DO NOT MODIFY THIS VARIABLE! -->
 			
-			<!-- PLACE ADDITIONAL _INFO.json FILES TO THIS LIST (NEWEST FIRST!): -->
+			// PLACE ADDITIONAL _INFO.json FILES TO THIS LIST (NEWEST FIRST!):
 			
 			{title: "Sunday Pause Series",
 			description: "Flyer for Gracepoint",
@@ -54,12 +89,5 @@ var app = new Vue({
 			reference: "",
 			churchgroup: "Seattle/seattle-a2f"},
 		]
-	},
-	methods: {
-		// given directory, retrieve the date
-		// getDate: function(dir) {
-		// 	var arr = dir.split('-');
-		// 	return arr[0];
-		// }
 	}
-});
+}).$mount('#app');

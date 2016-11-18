@@ -43,21 +43,6 @@
 		"oAP": "\/.nojekyll",
 		"oF": 0
 		},
-	"\/app.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/min\/app-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/app.kit": {
-		"ft": 2048,
-		"oA": 0,
-		"oAP": "\/app.js",
-		"oF": 2
-		},
 	"\/Gracepoint\/Seattle\/_root.kit": {
 		"ft": 2048,
 		"oA": 1,
@@ -435,11 +420,35 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/website\/js\/app.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/website\/js\/min\/app-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/website\/js\/app.kit": {
+		"ft": 2048,
+		"oA": 0,
+		"oAP": "\/website\/js\/app.js",
+		"oF": 2
+		},
 	"\/website\/js\/moment.min.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/website\/js\/min\/moment.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/website\/js\/vue-router.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/website\/js\/min\/vue-router-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
