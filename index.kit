@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Gracepoint Design</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="_website/css/styles.css">
+        <script src="_website/js/vue.js"></script>
+        <script src="_website/js/moment.min.js"></script>
+        <meta name="viewport" content="width=device-width">
+
+    </head>
+    
+    <body>
+        <div id="app">
+            <header>
+                
+            </header>
+            <section class="container" >
+                <design-card v-for="design in designs" :design="design"></design-card>
+            </section>
+        </div>
+
+        <template id="design-card">
+            <div class="card">
+                <img width="360" height="270" :src="getThumb()">
+                <div class="info">
+                    {{ design.title }}<br>
+                    {{ getDate() }}
+
+                </div>
+            </div>
+        </template>
+    </body>
+
+    <script src="app.js"></script>
+</html>

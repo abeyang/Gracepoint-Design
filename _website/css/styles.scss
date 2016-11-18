@@ -1,0 +1,32 @@
+$darkest-gray: 	#111;
+$darker-gray: 	#222;
+$dark-gray: 	#333;
+$gray:			#666;
+$white:			#fff;
+
+$pad-s:			10px;
+$pad-m:			15px;
+$pad:			20px;
+
+$width: 		360px;
+$height:		270px;
+
+body {
+	background-color: $darker-gray;	
+}
+
+body, p, div, h1, h2, h3, h4, h5, h6 {
+	font-family: Roboto, sans-serif;
+	color: $white;
+}
+
+.card {
+	float: left;
+	margin: $pad-m;
+	width: $width;
+	background-color: $dark-gray;
+
+	.info {
+		padding: $pad;
+	}
+}

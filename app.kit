@@ -1,0 +1,33 @@
+Vue.component('design-card', {
+	props: ['design'],
+	template: '#design-card',
+	methods: {
+		fullurl: function() {
+			return 'Gracepoint/' + this.design.churchgroup + '/' + this.design.directory + '/';
+		},
+		getThumb: function() {
+			return this.fullurl() + '_thumb.jpg';
+		},
+		getDate: function() {
+			var arr = this.design.directory.split('-');
+			// todo: need to prettify date
+			return arr[0];
+		}
+	}
+});
+
+var app = new Vue({
+	el: '#app',
+	data: {
+		designs: [
+			<!-- @import Gracepoint/Seattle/_root.kit -->
+		]
+	},
+	methods: {
+		// given directory, retrieve the date
+		// getDate: function(dir) {
+		// 	var arr = dir.split('-');
+		// 	return arr[0];
+		// }
+	}
+});
