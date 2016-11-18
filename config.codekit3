@@ -37,6 +37,12 @@
 		"oAP": "\/.gitignore",
 		"oF": 0
 		},
+	"\/.nojekyll": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/.nojekyll",
+		"oF": 0
+		},
 	"\/_website\/css\/styles.css": {
 		"aP": 0,
 		"bl": 0,
