@@ -4,6 +4,7 @@ const Dashboard = Vue.extend({
 	template: '#dashboard',
 	data: function() {
 		return {
+			// https://vuejsfeed.com/blog/building-a-vue-2-0-app-using-vue-router
 			// https://jsbin.com/bikadol/7/edit?html,js,output
 			designs: this.$parent.designs
 		}
@@ -11,11 +12,23 @@ const Dashboard = Vue.extend({
 });
 
 const Design = Vue.extend({ 
-	template: '<div>Design {{ $route.params.id }}</div>',
+	template: '#design-page',
+	// '<div>Design {{ $route.params.church }} {{ $route.params.group }} {{ $route.params.dir }}</div>',
 	data: function() {
 		return {
-			// https://jsbin.com/bikadol/7/edit?html,js,output
-			designs: this.$parent.designs
+			current: _.findWhere(this.$parent.designs, {directory: this.$route.params.dir, churchgroup: this.$route.params.church + '/' + this.$route.params.group})
+		}
+	},
+	methods: {
+		addGP: function() {
+			return '/Gracepoint' + this.$route.fullPath;
+		},
+		getThumb: function() {
+			 return this.addGP() + '/_thumb.jpg';
+		},
+		getGithubUrl: function() {
+			// https://github.com/abeyang/Gracepoint-Design/tree/gh-pages/Gracepoint/Seattle/seattle-a2f/20160822-BoardgameNight
+			return 'https://github.com/abeyang/Gracepoint-Design/tree/gh-pages/' + this.addGP();
 		}
 	}
 });
@@ -25,8 +38,7 @@ const Design = Vue.extend({
 const router = new VueRouter({
 	routes: [
 		{ path: '/', component: Dashboard},
-		{ path: '/design', component: Design},
-		{ path: '/design/:id', component: Design}
+		{ path: '/:church/:group/:dir', component: Design}
 	]
 });
 
@@ -36,11 +48,14 @@ Vue.component('design-card', {
 	props: ['design'],
 	template: '#design-card',
 	methods: {
-		fullurl: function() {
-			return 'Gracepoint/' + this.design.churchgroup + '/' + this.design.directory + '/';
+		getPageUrl: function() {
+			return '/' + this.design.churchgroup + '/' + this.design.directory;
+		},
+		getFullUrl: function() {
+			return '/Gracepoint' + this.getPageUrl();
 		},
 		getThumb: function() {
-			return this.fullurl() + '_thumb.jpg';
+			return this.getFullUrl() + '/_thumb.jpg';
 		},
 		getDate: function() {
 			var arr = this.design.directory.split('-');

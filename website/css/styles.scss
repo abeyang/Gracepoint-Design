@@ -7,23 +7,67 @@ $white:			#fff;
 $pad-s:			10px;
 $pad-m:			15px;
 $pad:			20px;
+$pad-l:			40px;
 
 $width: 		360px;
 $height:		270px;
+
+/* GENERIC */
 
 body {
 	background-color: $darker-gray;	
 }
 
+body, section {
+	margin: 0;
+	padding: 0;
+}
+
 body, p, div, h1, h2, h3, h4, h5, h6 {
 	font-family: Roboto, sans-serif;
 	color: $white;
+	margin-top: 0;
 }
+
+a {
+	text-decoration: none;
+}
+
+header {
+	height: 80px;
+	width: 100%;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* SPECIFICS */
+
+/* Page */
+
+.page {
+	.container {
+		max-width: 760px;
+		margin: $pad-l auto;
+	}
+
+	.hero { width: 100%; }
+
+	.main, aside { padding: $pad-s; }
+	.main {
+		width: 60%;
+	}
+	aside {
+		float: right;
+		width: 36%;
+	}
+}
+
+
+/* Dashboard */
 
 .card {
 	float: left;
 	display: block;
-	margin: $pad-m;
+	margin: $pad-l 0 0 $pad-l;
 	width: $width;
 	background-color: $dark-gray;
 

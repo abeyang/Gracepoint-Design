@@ -1,14 +1,48 @@
+/* GENERIC */
 body {
   background-color: #222; }
 
+body, section {
+  margin: 0;
+  padding: 0; }
+
 body, p, div, h1, h2, h3, h4, h5, h6 {
   font-family: Roboto, sans-serif;
-  color: #fff; }
+  color: #fff;
+  margin-top: 0; }
 
+a {
+  text-decoration: none; }
+
+header {
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* SPECIFICS */
+/* Page */
+.page .container {
+  max-width: 760px;
+  margin: 40px auto; }
+
+.page .hero {
+  width: 100%; }
+
+.page .main, .page aside {
+  padding: 10px; }
+
+.page .main {
+  width: 60%; }
+
+.page aside {
+  float: right;
+  width: 36%; }
+
+/* Dashboard */
 .card {
   float: left;
   display: block;
-  margin: 15px;
+  margin: 40px 0 0 40px;
   width: 360px;
   background-color: #333; }
   .card .info {

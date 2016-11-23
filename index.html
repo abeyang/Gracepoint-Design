@@ -11,25 +11,42 @@
         <script src="website/js/vue.js"></script>
         <script src="website/js/vue-router.js"></script>
         <script src="website/js/moment.min.js"></script>
+        <script src="website/js/underscore-min.js"></script>
         <meta name="viewport" content="width=device-width">
 
     </head>
     
     <body>
         <div id="app">
-            <router-link to="/">Go to Dash</router-link>
-            <router-link to="/design">Go to Design</router-link>
             <router-view></router-view>
         </div> <!-- /#app -->
 
-        <template id="test" :designs="designs">
-            <div>
-                This is test template for DASHBOARD {{designs}}
-            </div>
-        </template>
+        <!-- DESIGN PAGE TEMPLATE -->
+        <!-- TODO: need to account for Page Not Found -->
+        <template id="design-page">
+            <section class="page">
+                <header>
+                    
+                </header>
+                <div class="container">
+                    <h2>{{ current.title }}</h2>
+                    <img class="hero" :src="getThumb()">
+                    <aside>
+                        <a class="button" :href="getGithubUrl()">View Project on Github</a>
+                    </aside>
+                    <div class="main">
+                        <p v-if="current.designer">by {{ current.designer }}</p>
+                        <p>{{ current.description }}</p>
+                    </div>
+
+                </div>
+            </section>
+        </template> <!-- /#design-page -->
+
+        <!-- DASHBOARD TEMPLATE -->
 
         <template id="dashboard">
-            <section>
+            <section class="dashboard">
                 <header>
                     
                 </header>
@@ -37,17 +54,17 @@
                     <design-card v-for="design in designs" :design="design"></design-card>
                 </div>
             </section>
-        </template>
+        </template> <!-- /#dashboard -->
 
         <template id="design-card">
-            <router-link to="/design" class="card">
+            <router-link :to="{path: getPageUrl()}" class="card">
                 <img width="360" height="270" :src="getThumb()">
                 <div class="info">
                     {{ design.title }}<br>
                     {{ getDate() }}
                 </div>
             </router-link>
-        </template>
+        </template> <!-- /#design-card -->
     </body>
 
     <script src="website/js/app.js"></script>
